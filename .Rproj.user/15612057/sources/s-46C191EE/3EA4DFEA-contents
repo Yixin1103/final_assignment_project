@@ -33,7 +33,7 @@ This paper is structured as follows. In Section I, I illustrate the features of 
 The Github repo can be found in the footer.^[https://github.com/Yixin1103/final_assignment_project]
 
 # Data
-This paper uses the same dataset provided by the original Bronzini and Iachini’s paper. Bronzini and Iachini’s paper conducted their analysis using STATA [@stata], while this paper conducts the analysis with R [@citeR]. R packages including 'haven' [@haven], `tidyverse` [@tidyverse],  `here` [@here], `kableExtra` [@kableExtra],`modelsummary` [@modelsummary], `gplot2` [@ggplot2],`gcookbook` [@gcookbook] were used to conduct the analysis and present results. Due to the use of different statistical tools, the some results presented in this paper may slightly vary from the original paper. This is considered as acceptable.  
+This paper uses the same dataset provided by the original Bronzini and Iachini’s paper. Bronzini and Iachini’s paper conducted their analysis using STATA [@stata], while this paper conducts the analysis with R [@citeR]. R packages including 'haven' [@haven], `tidyverse` [@tidyverse], `here` [@here], `kableExtra` [@kableExtra],`modelsummary` [@modelsummary], `gplot2` [@ggplot2],`gcookbook` [@gcookbook] were used to conduct the analysis and present results. Due to the use of different statistical tools, the some results presented in this paper may slightly vary from the original paper. This is considered as acceptable.  
 
 ## The program 
 The paper studies the "Regional Program for Industrial Research, Innovation and Technological Transfer" by the government Emilia-Romagna, Italy in 2005 [@Program]. As indicated in the Bronzini and Iachini’s paper, through this program, regional government provides direct R&D subsidy to eligible firms to support their industrial research and precompetitive development. The program grant may cover up to 50 percent of the costs of industrial research projects and 25 percent for precompetitive development projects; the 25 percent limit is extended by an additional 10 percent if applicants are small or medium-sized enterprises in the region. Several types of outlay related to the eligible project can be subsidized: (i) costs for machinery and equipment; (ii) software; (iii) purchase and registration of patents and licenses; (iv) employment of researchers; (v) the use of laboratories; (vi) contracts with research centers; (vii) consulting; (viii) feasibility studies; and (ix) external costs for the realization of prototypes. The maximum grant per project is €250, 000. The industrial firms data in Bronzini and Iachini’s sample, grants averaged €182,000. The duration of the investment is from 12 to 24 months, but it can be extended. Subsidies are transferred to the firms either after the completion of the project, or in two installments: the first at the completion of 50 percent of the project and the second on completion. Firms that received the program grant cannot receive other types of public subsidy for the same project [@bronzini2014incentives]. 
@@ -60,7 +60,7 @@ In the original paper, Bronzini and Iachini found no significant impact of progr
 
 This paper aims to contribute to the existing research by examine whether the program has different effect to firms with different capital status. The program provides 50% of the costs of industrial research projects and 25 percent for precompetitive development projects. This means that firms receiving the subsidy from the government need to match the remaining funding from their own financial accounts. According to analysis of the program setup and existing literature of Japaneses firms [@david2008implications], this paper wants to examine whether firms with different capital structure may benefit differently from the program, i.e. show different patterns in R&D outlays. Therefore, the firms are divided into two groups, the High Capital group, whose pre-program total capital (one year before the program) is above the median, and the Low Capital group, whose pre-program capital is below the median. 
 
-(Figure \@ref(fig:fig02)), (Figure \@ref(fig:fig03)) and (Figure \@ref(fig:fig04)) scatter plots show the relationship between high capital and low capital firms' scores and the three outcome variables, namely total investment/pre-program sales, tangible investment/pre-program sales, and intangible investment/pre-program sales. The trend is consistent with the three outcome variables: for high capital group, firms with higher score tend to have higher R&D outlays, and for low capital group, firms with higher scores tend to have lower R&D outlays. The statistical significance these relationships requires further examination. 
+Figure \@ref(fig:fig02), Figure \@ref(fig:fig03) and Figure \@ref(fig:fig04) scatter plots show the relationship between high capital and low capital firms' scores and the three outcome variables, namely total investment/pre-program sales, tangible investment/pre-program sales, and intangible investment/pre-program sales. The trend is consistent with the three outcome variables: for high capital group, firms with higher score tend to have higher R&D outlays, and for low capital group, firms with higher scores tend to have lower R&D outlays. The statistical significance these relationships requires further examination. 
 
 ```{r fig01, fig.cap="Firm Density Distrribution by Score", echo = FALSE, message = FALSE, warning=FALSE, fig.width=8, fig.height=4}
 filename <-  here::here("inputs/data/Bronzini-Iachini_dataset.dta")
@@ -121,9 +121,9 @@ Since the model in this paper is RDD, the cutoff and bandwidth needs to be defin
 
 To analyze the effectiveness of the program in supporting R&D, the treatment and comparison groups should be selected to maintain the similarity between the two groups [@Gertler]. Since this dataset contains only 357 observations and was skewed towards the right of the cutoff, three bandwidth values were selected to maintain statistical power of the model, namely, the full sample, wide-window bandwidth (which contains 50% of the sample in each side of the cutoff) and the narrow-window bandwidth (which contains 35% of the sample in each side of the cutoff). 
 
-This paper tests difference between the control and treatment groups for both the low and high capital firms by examining their pre-program assets, pre-program capital and pre-program sales. As shown in (Table \@ref(Tab:Table1)) low capital firms, the control and treatment groups do no show statistically mean difference with the narrow window bandwidth (score 62-79), which suggest that the control and treatment groups for narrow window bandwidth do not differ significantly in pre-program assets, pre-program capital and pre-program sales. The paper considers the two groups similar in nature. However, the treatment and control groups for the full window showed significant difference in sales and capital, and the treatment and control groups for the wide window (score 34-81) showed significant difference in sales and assets. Therefore, comparing these groups may undermine the internal validity of the RDD model. 
+This paper tests difference between the control and treatment groups for both the low and high capital firms by examining their pre-program assets, pre-program capital and pre-program sales. As shown in Table \@ref(tab:Table1) low capital firms, the control and treatment groups do no show statistically mean difference with the narrow window bandwidth (score 62-79), which suggest that the control and treatment groups for narrow window bandwidth do not differ significantly in pre-program assets, pre-program capital and pre-program sales. The paper considers the two groups similar in nature. However, the treatment and control groups for the full window showed significant difference in sales and capital, and the treatment and control groups for the wide window (score 34-81) showed significant difference in sales and assets. Therefore, comparing these groups may undermine the internal validity of the RDD model. 
 
-As shown in (Table \@ref(Tab:Table2)) low capital firms, the control and treatment groups do no show statistically mean difference with the narrow window bandwidth (score 61-79),  and the wide window (score 52 -80), which suggest that the control and treatment groups do not differ significantly in pre-program assets, pre-program capital and pre-program sales. The paper considers the two groups similar in nature. However, the treatment and control groups for the full window showed significant difference in sales, assets and capital. Therefore, comparing these groups may undermine the internal validity of the RDD model.
+As shown in Table \@ref(tab:Table2) low capital firms, the control and treatment groups do no show statistically mean difference with the narrow window bandwidth (score 61-79),  and the wide window (score 52 -80), which suggest that the control and treatment groups do not differ significantly in pre-program assets, pre-program capital and pre-program sales. The paper considers the two groups similar in nature. However, the treatment and control groups for the full window showed significant difference in sales, assets and capital. Therefore, comparing these groups may undermine the internal validity of the RDD model.
 
 Based on the analysis above, the paper will analyze the high capital and low capital firms in their narrow window to examine the effectiveness of the program. 
 
@@ -152,7 +152,7 @@ fullWindowLargeCompanyData <- data %>%
 ```
 
 
-```{r fig.cap="Pre-Assignment Mean Difference between Untreated and Treated Low Capital Firms ",echo = FALSE}
+```{r Table1, tab.cap="Pre-Assignment Mean Difference between Untreated and Treated Low Capital Firms ",echo = FALSE}
 # conduct the t test for Low Capital companies 
 wideWindowLeftData <- fullWindowSmallCompanyData %>%
                   filter(score > 34 & score < 75)
@@ -197,7 +197,7 @@ map_df(list(t1, t2, t3, t4, t5, t6, t7, t8, t9), tidy) %>%
   kable_styling(latex_options = "hold_position") 
 ```
 
-```{r Table2, fig.cap="Pre-Assignment Mean Difference between Untreated and Treated High Capital Firms ",echo = FALSE}
+```{r Table2, tab.cap="Pre-Assignment Mean Difference between Untreated and Treated High Capital Firms ",echo = FALSE}
 # conduct the t test for High Capital companies 
 wideWindowLeftData <- fullWindowLargeCompanyData %>%
                   filter(score > 52 & score < 75)
@@ -259,9 +259,9 @@ where
 
 * $Y_{i}$ is the R&D investment outcome for firm $i$, which is represented by variables (1) Total investment/pre-program sales, (2) Tangible investment/pre-program sales, (3) Intangible investment/pre-program sales. 
 
-* $T_{i}$ represents whether firm $i$ has been subsidized or not. T_{i} = 1 if firm $i$ is subsidized (score_{i} > = 75) and T_{i} = 0 if firm $i$ is not subsidized (score_{i} t < 75). And its coefficient $\beta_{0}$ is the estimate of the program's impact on firms R&D investment when they receive the subsidies. 
+* $T_{i}$ represents whether firm $i$ has been subsidized or not. $T_{i}$ = 1 if firm $i$ is subsidized ($score_{i}$ > = 75) and $T_{i}$ = 0 if firm $i$ is not subsidized ($score_{i}$ t < 75). And its coefficient $\beta_{0}$ is the estimate of the program's impact on firms R&D investment when they receive the subsidies. 
 
-* $S_{i}$ is Score_{i} - 75, and the functions $f(S_{i})$ and $f'(S_{i})$ are allowed to be different on the opposite side of the cutoff to allow for heterogeneity of the function in the left and right side of the cutoff. 
+* $S_{i}$ is $Score_{i}$ - 75, and the functions $f(S_{i})$ and $f'(S_{i})$ are allowed to be different on the opposite side of the cutoff to allow for heterogeneity of the function in the left and right side of the cutoff. 
 
 * $\epsilon_{i}$ is the random error of the function. 
 
@@ -274,7 +274,7 @@ As discussed in the Data section, these outcome variables are continuous, theref
 
 ## Low Capital Group 
 
-For firms with low capital, the coefficients for the treatment variable T_{i} are shown in the "subsidized" row in (Table \@ref(Tab:Table4)). The $\beta_{0}$ coefficient for T_{i} is significant in the total investment/pre-program sales model and the intangible investment/pre-program sales model but not on the tangible investment/pre-program sales model at a 95% confidence interval. Subsidizing a firm through the program will lead to a 0.101 increase in the firm's total investment/pre-program sales and a increase of 0.068 in the firm's intangible investment/pre-program sales. (Figure \@ref(fig:fig05)) shows the program's influence to firms in the low capital groups graphically. 
+For firms with low capital, the coefficients for the treatment variable $T_{i}$ are shown in the "subsidized" row in Table \@ref(tab:Table4). The $\beta_{0}$ coefficient for $T_{i}$ is significant in the total investment/pre-program sales model and the intangible investment/pre-program sales model but not on the tangible investment/pre-program sales model at a 95% confidence interval. Subsidizing a firm through the program will lead to a 0.101 increase in the firm's total investment/pre-program sales and a increase of 0.068 in the firm's intangible investment/pre-program sales. Figure \@ref(fig:fig05), Figure \@ref(fig:fig06) and Figure \@ref(fig:fig07) show the program's influence to firms in the low capital groups graphically. 
 
 
 ```{r, include = FALSE, echo = FALSE}
@@ -309,7 +309,7 @@ narrowSmallINVINTSALES <- lm(INVINTSALES ~ treat  + snotreat + streat,
                    data = narrowWindowSmallData)
 ```
 
-```{r, Table3, fig.cap="Effect of the Program on Investment--Low Capital Firms ", echo = FALSE, message = FALSE, warning=FALSE}
+```{r Table3, tab.cap="Effect of the Program on Investment--Low Capital Firms ", echo = FALSE, message = FALSE, warning=FALSE}
 modelsummary(list("Total Investment" = narrowSmallINVSALES, "Tangible Investment" = narrowSmallINVTSALES,"Intangible Investment" =  narrowSmallINVINTSALES),
              statistic = "{std.error} ({p.value})",
              stars =TRUE,
@@ -355,7 +355,7 @@ narrowLargeINVINTSALES <- lm(INVINTSALES ~ treat  + snotreat + streat,
                    data = narrowWindowLargeData)
 ```
 
-```{r, Table4, fig.cap="Effect of the Program on Investment--High Capital Firms ", echo = FALSE, message = FALSE, warning=FALSE}
+```{r, Table4, tab.cap="Effect of the Program on Investment--High Capital Firms ", echo = FALSE, message = FALSE, warning=FALSE}
 modelsummary(list("Total Investment" = narrowLargeINVSALES, "Tangible Investment" = narrowLargeINVTSALES,"Intangible Investment" =  narrowLargeINVINTSALES),
              statistic = "{std.error} ({p.value})",
              stars =TRUE,
@@ -500,8 +500,7 @@ fullINVINTSALES <- lm(INVINTSALES ~ treat + distance , data = fullData)
 #   ggtitle("Narrow window - Intangible investment/pre-program sales")
 ```
 
-```{r, fig05, fig.cap="Effect of the Program on Investment--Low Capital Firms", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
-
+```{r fig05, fig.cap="Effect of the Program on Investment - Low Capital Firms - Total investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowSmallCompanyData %>%
   filter(score > 62 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -509,9 +508,10 @@ fullWindowSmallCompanyData %>%
   ggplot(aes(x = score, y = INVSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Total investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("Low Capital Firms - Total investment/pre-program sales")
+  labs(y="Total investment/pre-program sales", x="Score", color="Treat")
+```
 
+```{r fig06, fig.cap="Effect of the Program on Investment - Low Capital Firms - Tangible investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowSmallCompanyData %>%
   filter(score > 62 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -519,9 +519,11 @@ fullWindowSmallCompanyData %>%
   ggplot(aes(x = score, y = INVTSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Tangible investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("Low Capital Firms - Tangible investment/pre-program sales")
+  labs(y="Tangible investment/pre-program sales", x="Score", color="Treat")
+```
 
+
+```{r fig07, fig.cap="Effect of the Program on Investment - Low Capital Firms - Intangible investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowSmallCompanyData %>%
   filter(score > 62 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -529,17 +531,17 @@ fullWindowSmallCompanyData %>%
   ggplot(aes(x = score, y = INVINTSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Intangible investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("Low Capital Firms - Intangible investment/pre-program sales")
+  labs(y="Intangible investment/pre-program sales", x="Score", color="Treat")
 ```
+
 
 ## High Capital Group
 
-For firms with high capital, the coefficients for the treatment variable T_{i} are shown in the "subsidized" row in (Table \@ref(Tab:Table4)). The $\beta_{0}$ coefficient for T_{i} is not significant in in neither the total investment/pre-program sales model, the intangible investment/pre-program sales model nor the tangible investment/pre-program sales model. This means that subsidizing a firm through the program will not lead to statisitically significant change in the firm's total investment/pre-program sales, intangible investment/pre-program sales, or tangible investment/pre-program sales. (Figure \@ref(fig:fig06)) shows the program's influence to firms in the high capital groups graphically. 
+For firms with high capital, the coefficients for the treatment variable $T_{i}$ are shown in the "subsidized" row in Table \@ref(tab:Table4). The $\beta_{0}$ coefficient for $T_{i}$ is not significant in in neither the total investment/pre-program sales model, the intangible investment/pre-program sales model nor the tangible investment/pre-program sales model. This means that subsidizing a firm through the program will not lead to statisitically significant change in the firm's total investment/pre-program sales, intangible investment/pre-program sales, or tangible investment/pre-program sales. Figure \@ref(fig:fig08), Figure \@ref(fig:fig09) and Figure \@ref(fig:fig10) show the program's influence to firms in the high capital groups graphically. 
 
-Readers can also interact with the graphical data via the shinyapps at https://yixin-guan.shinyapps.io/companygraph/.
+Readers can also interact with the graphical data via the Shinyapps at https://yixin-guan.shinyapps.io/companygraph/.
 
-```{r, fig06, fig.cap="Effect of the Program on Investment--High Capital Firms", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
+```{r fig08, fig.cap="Effect of the Program on Investment - High Capital Firms - Total investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowLargeCompanyData %>%
   filter(score > 61 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -547,9 +549,10 @@ fullWindowLargeCompanyData %>%
   ggplot(aes(x = score, y = INVSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Total investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("High Capital Firms - Total investment/pre-program sales")
+  labs(y="Total investment/pre-program sales", x="Score", color="Treat")
+```
 
+```{r fig09, fig.cap="Effect of the Program on Investment - High Capital Firms - Tangible investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowLargeCompanyData %>%
   filter(score > 61 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -557,9 +560,10 @@ fullWindowLargeCompanyData %>%
   ggplot(aes(x = score, y = INVTSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Tangible investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("High Capital Firms - Tangible investment/pre-program sales")
+  labs(y="Tangible investment/pre-program sales", x="Score", color="Treat")
+```
 
+```{r fig10, fig.cap="Effect of the Program on Investment - High Capital Firms - Intangible investment/pre-program sales", echo = FALSE, fig.width=8, fig.height=4, echo = FALSE, message = FALSE, warning=FALSE}
 fullWindowLargeCompanyData %>%
   filter(score > 61 & score < 79) %>%
   mutate(treatGroup = ifelse(score< 75, "No Subsidized", "Subsidized")) %>%
@@ -567,8 +571,7 @@ fullWindowLargeCompanyData %>%
   ggplot(aes(x = score, y = INVINTSALES, color = treatGroup)) +
   geom_point(alpha = 0.5) + 
   geom_smooth(formula = y~x, method = 'lm') +
-  labs(y="Intangible investment/pre-program sales", x="Score", color="Treat") +
-  ggtitle("High Capital Firms - Intangible investment/pre-program sales")
+  labs(y="Intangible investment/pre-program sales", x="Score", color="Treat")
 ```
 
 
@@ -584,7 +587,7 @@ The mean difference results are consistent with the previous speculations and th
 
 The paper then used the same model from the Bronzini and Iachini paper to examine the effectiveness of the program on firms' R&D outlays to the High Capitial and Low Capital group. The paper finds that for firms with low capital, the coefficients for the treatment variable T_{i} are significant in the total investment/pre-program sales model and the intangible investment/pre-program sales model but not on the tangible investment/pre-program sales model. This suggests that for firms with relatively low capital reserves, the subsidy from the program was effective in supporting their innovation activities and allowed them to have the financial capacities to invest in R&D activities. Since the co-efficient for total investment/pre-program sales model and the intangible investment/pre-program sales are significant, these firms likely tend to use the subsidies for intangible intellectual properties expenditures, such as patents and copyrights.  
 
-The paper finds that for firms with high capital reserves, the coefficients for the treatment variable T_{i} are not significant in neither the total investment/pre-program sales model, the intangible investment/pre-program sales model nor the tangible investment/pre-program sales model. This suggests that the program was not the determining factor for the R&D investment increase for firms with high capital reserves. In other words, the program was not an effective tool to support a firm's R&D investment.
+The paper finds that for firms with high capital reserves, the coefficients for the treatment variable $T_{i}$ are not significant in neither the total investment/pre-program sales model, the intangible investment/pre-program sales model nor the tangible investment/pre-program sales model. This suggests that the program was not the determining factor for the R&D investment increase for firms with high capital reserves. In other words, the program was not an effective tool to support a firm's R&D investment.
 
 ## Model and data limitation
 ### Variable Selection
