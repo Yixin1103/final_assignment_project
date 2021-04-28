@@ -3,7 +3,7 @@
     "path": "~/Desktop/finalassignment/final_assignment_project/outputs/paper/paper.Rmd",
     "project_path": "outputs/paper/paper.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "2617034518",
     "contents": "",
     "dirty": false,
     "created": 1619583404040.0,
@@ -12,16 +12,16 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "533,3",
-        "scrollLine": "527",
+        "cursorPosition": "62,632",
+        "scrollLine": "53",
         "last_setup_crc32": "46C191EE4f2aeec7"
     },
     "folds": "",
-    "lastKnownWriteTime": 1619584044,
+    "lastKnownWriteTime": 1619584506,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1619584044375,
+    "last_content_update": 1619584506757,
     "read_only": false,
     "read_only_alternatives": []
 }
